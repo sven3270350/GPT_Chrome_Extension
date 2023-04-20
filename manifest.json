@@ -1,0 +1,38 @@
+{
+  "name": "Codeur ChatGPT Extension",
+  "version": "1.0.0",
+  "description": "Auto Generate Answers using ChatGPT",
+  "icons": {
+    "16": "/images/image_16.png",
+    "32": "/images/image_32.png",
+    "48": "/images/image_48.png",
+    "128": "/images/image_128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "/images/image_16.png",
+      "32": "/images/image_32.png",
+      "48": "/images/image_48.png",
+      "128": "/images/image_128.png"
+    },
+    "default_title": "Codeur ChatGPT Extension",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.codeur.com/*"],
+      "js": ["contentScript.js"]
+    },
+    {
+      "css": [ "popup.css" ],
+      "matches": [ "*://www.codeur.com/*" ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "author": "Tim Robertson",
+  "permissions": ["storage", "tabs", "webNavigation"],
+  "host_permissions": ["https://www.codeur.com/*"],
+  "manifest_version": 3
+}
